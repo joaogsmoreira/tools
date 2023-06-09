@@ -161,7 +161,7 @@ if __name__ == '__main__':
     CALIB_DIR = '/home/johny/CustomDataset/training/calib'
 
     # id for viewing
-    file_id = 1
+    file_id = 45
 
     img_filename = os.path.join(IMG_DIR, '{0:06d}.png'.format(file_id))
     label_filename = os.path.join(LABEL_DIR, '{0:06d}.txt'.format(file_id))

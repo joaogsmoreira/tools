@@ -24,7 +24,7 @@ class RecordPose:
         # Dividing by param_intensity_range to get intensity in desired range
         pc_arr[3::4] = 0
         global pc_num
-        output_file = "/home/johny/CustomDataset/training/velodyne/{:06d}.bin".format(pc_num)
+        output_file = "/home/johny/CustomDatasetV2/testing/velodyne/{:06d}.bin".format(pc_num)
         pc_arr.astype('float32').tofile(output_file)
         pc_num += 1
 

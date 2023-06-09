@@ -2,10 +2,11 @@ import scipy.io
 import numpy as np
 import pandas as pd
 
-CALIB_FILE_PATH = '/home/johny/CustomDataset/training/calib/000001.txt'
-MAT_FILE_PATH   = '/home/johny/catkin_ws/src/tools/src/labels.mat'
-LABEL_OUT_PATH  = '/home/johny/CustomDataset/training/label_2/'
-_LIDAR_HEIGHT    = -0.80
+CALIB_FILE_PATH = '/home/johny/CustomDatasetV2/training/calib/000001.txt'
+MAT_FILE_PATH   = '/home/johny/catkin_ws/src/tools/src/labels_eval.mat'
+LABEL_OUT_PATH  = '/home/johny/CustomDatasetV2/training/label_2/'
+_LIDAR_HEIGHT   = -0.80
+FILE_OFFSET     = 145
 
 class LabelConverter():
     def __init__(self, calib_path, mat_path, label_path):
@@ -91,7 +92,7 @@ class LabelConverter():
     def create_kitti_labels(self, df, label_path):
         for file in range(len(df.groupby(level=0))):
             file_data = df.loc[[file]]
-            with open(label_path + '{:06d}.txt'.format(file), 'x') as txtfile:
+            with open(label_path + '{:06d}.txt'.format(file+FILE_OFFSET), 'x') as txtfile:
                 for label in range(len(file_data.groupby(level=1))):
                     label_data = file_data.loc[file, label]
                     def parse(tag):
